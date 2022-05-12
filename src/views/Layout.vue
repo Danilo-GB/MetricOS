@@ -6,7 +6,7 @@
     </a-button>
     <chart-creator
       :createNewComponent="createNewComponent"
-      @onChange="switchComponentCreation"
+      @onChange="createNewComponent = false"
     ></chart-creator>
     <!-- / Floating Action Button For Toggling -->
     <div class="border-gray-6">
@@ -56,8 +56,8 @@ export default {
     };
   },
   methods: {
-    switchComponentCreation(e) {
-      this.createNewComponent = e;
+    switchComponentCreation() {
+      this.createNewComponent = !this.createNewComponent;
     },
   },
 };

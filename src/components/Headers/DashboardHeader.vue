@@ -36,7 +36,7 @@
                 <template slot="content">
                   <span>{{ $t("header.fix-header") }}</span>
                 </template>
-                <a-icon type="pushpin" :theme="navbarFixed ? 'filled' : ''" />
+                <a-icon type="pushpin" />
               </a-popover>
             </a-menu-item>
             <!-- / Header fixed -->

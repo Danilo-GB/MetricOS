@@ -17,5 +17,20 @@
   "modal": {
     "ok": "Confirm",
     "cancel": "Cancel"
+  },
+  "chart": {
+    "line": {
+      "base": "line chart",
+      "basic": "@chart.line.base - Basic",
+      "zoomable": "@chart.line.base - Zoomable timeseries"
+    },
+    "area": {
+      "base": "area chart",
+      "basic": "@chart.area.base - Basic"
+    },
+    "column": {
+      "base": "column chart",
+      "basic": "@chart.column.base - Basic"
+    }
   }
 }

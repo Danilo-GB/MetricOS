@@ -16,9 +16,16 @@
     theme="light"
     :style="{ backgroundColor: 'transparent' }"
   >
-    <div class="brand">
-      <img src="images/logo-ct-black.png" alt="" /> <span>Metric OS</span>
-    </div>
+    <a-row type="flex" align="middle" justify="center">
+      <a-col>
+        <img src="images/logos/brandLogo-gray.svg" alt="" width="60" />
+      </a-col>
+    </a-row>
+    <a-row type="flex" align="middle" justify="center">
+      <a-col>
+        <span class="text-item-header">Metric OS</span>
+      </a-col>
+    </a-row>
     <hr />
 
     <!-- Sidebar Navigation Menu -->
