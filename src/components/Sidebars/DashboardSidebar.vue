@@ -23,13 +23,15 @@
 
     <!-- Sidebar Navigation Menu -->
     <a-menu theme="light" mode="inline">
-      <a-menu-item class="menu-item-header"> Functions </a-menu-item>
+      <a-menu-item class="menu-item-header">
+        {{ $t("sidebar.functions") }}
+      </a-menu-item>
       <a-menu-item>
         <router-link to="/dashboard">
           <span class="icon">
             <a-icon type="appstore" theme="filled" />
           </span>
-          <span class="label">Projects</span>
+          <span class="label">{{ $t("sidebar.projects") }}</span>
         </router-link>
       </a-menu-item>
       <a-menu-item>
@@ -37,7 +39,7 @@
           <span class="icon">
             <a-icon type="fund" theme="filled" />
           </span>
-          <span class="label">Analytics</span>
+          <span class="label">{{ $t("sidebar.analytics") }}</span>
         </router-link>
       </a-menu-item>
       <a-menu-item>
@@ -45,17 +47,19 @@
           <span class="icon">
             <a-icon type="sliders" theme="filled" />
           </span>
-          <span class="label">Ai predictions</span>
+          <span class="label">{{ $t("sidebar.ai-predictions") }}</span>
         </router-link>
       </a-menu-item>
 
-      <a-menu-item class="menu-item-header"> Administration </a-menu-item>
+      <a-menu-item class="menu-item-header">
+        {{ $t("sidebar.administration") }}
+      </a-menu-item>
       <a-menu-item>
         <router-link to="/profile">
           <span class="icon">
             <a-icon type="database" theme="filled" />
           </span>
-          <span class="label">Database</span>
+          <span class="label">{{ $t("sidebar.database") }}</span>
         </router-link>
       </a-menu-item>
       <a-menu-item>
@@ -63,59 +67,13 @@
           <span class="icon">
             <a-icon type="control" theme="filled" />
           </span>
-          <span class="label">App</span>
+          <span class="label">{{ $t("sidebar.app") }}</span>
         </router-link>
       </a-menu-item>
       <a-menu-item>
         <router-link to="/sign-up">
-          <span class="icon">
-            <svg
-              width="14px"
-              height="14px"
-              viewBox="0 0 14 14"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <title>duplicate</title>
-              <g
-                id="Page-1"
-                stroke="none"
-                stroke-width="1"
-                fill="none"
-                fill-rule="evenodd"
-              >
-                <g
-                  id="Tables"
-                  transform="translate(-58.000000, -507.000000)"
-                  fill="#BFBFBF"
-                  fill-rule="nonzero"
-                >
-                  <g id="sidebar" transform="translate(33.000000, 43.000000)">
-                    <g
-                      id="sign-up"
-                      transform="translate(16.000000, 455.000000)"
-                    >
-                      <g
-                        id="duplicate"
-                        transform="translate(9.000000, 9.000000)"
-                      >
-                        <path
-                          d="M4,6 C4,4.89543 4.89543,4 6,4 L12,4 C13.1046,4 14,4.89543 14,6 L14,12 C14,13.1046 13.1046,14 12,14 L6,14 C4.89543,14 4,13.1046 4,12 L4,6 Z"
-                          id="Path"
-                        ></path>
-                        <path
-                          d="M2,0 C0.89543,0 0,0.89543 0,2 L0,8 C0,9.1046 0.89543,10 2,10 L2,4 C2,2.8954305 2.8954305,2 4,2 L10,2 L10,2 C10,0.89543 9.1046,0 8,0 L2,0 Z"
-                          id="Path"
-                        ></path>
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
-          </span>
-          <span class="label">Docs</span>
+          <span class="icon"><a-icon type="copy" theme="filled" /> </span>
+          <span class="label">{{ $t("sidebar.docs") }}</span>
         </router-link>
       </a-menu-item>
     </a-menu>
@@ -147,7 +105,7 @@ export default {
   },
   data() {
     return {
-      // sidebarCollapsedModel: this.sidebarCollapsed,
+      //sidebarCollapsedModel: this.sidebarCollapsed,
     };
   },
 };

@@ -17,9 +17,12 @@ import App from "./App.vue";
 import DefaultLayout from "./layouts/Default.vue";
 import DashboardLayout from "./layouts/Dashboard.vue";
 import router from "./router";
+
 // import './plugins/click-away'
 
 import "./scss/app.scss";
+
+import i18n from './i18n'
 
 Vue.use(Antd);
 
@@ -31,5 +34,6 @@ Vue.component("layout-dashboard", DashboardLayout);
 
 new Vue({
   router,
-  render: (h) => h(App),
+  i18n,
+  render: (h) => h(App)
 }).$mount("#app");

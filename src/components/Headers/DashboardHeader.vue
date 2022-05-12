@@ -9,16 +9,9 @@
     <a-layout-header>
       <a-row type="flex">
         <!-- Header Breadcrumbs & Title Column -->
-        <a-col :span="24" :md="6">
+        <a-col :span="18">
           <!-- Header Breadcrumbs -->
           <a-breadcrumb>
-            <a-breadcrumb-item>
-              <a-icon
-                @click="navbarFixed = !navbarFixed"
-                type="pushpin"
-                :theme="navbarFixed ? 'filled' : ''"
-              />
-            </a-breadcrumb-item>
             <a-breadcrumb-item
               ><router-link to="/"> Pages</router-link></a-breadcrumb-item
             >
@@ -34,7 +27,46 @@
           </div>
           <!-- / Header Page Title -->
         </a-col>
-        <!-- / Header Breadcrumbs & Title Column -->
+        <!-- / Header Breadcrumbs & general options -->
+        <a-col :span="6">
+          <a-menu mode="horizontal">
+            <!-- Header fixed -->
+            <a-menu-item @click="navbarFixed = !navbarFixed">
+              <a-popover placement="bottom">
+                <template slot="content">
+                  <span>{{ $t("header.fix-header") }}</span>
+                </template>
+                <a-icon type="pushpin" :theme="navbarFixed ? 'filled' : ''" />
+              </a-popover>
+            </a-menu-item>
+            <!-- / Header fixed -->
+            <!-- language switch -->
+            <a-sub-menu>
+              <span slot="title" class="submenu-title-wrapper">
+                <a-icon type="taobao"
+              /></span>
+              <a-menu-item-group :title="$t('header.switch-language')">
+                <a-menu-item key="setting:1" @click="$i18n.locale = 'en'">
+                  English
+                </a-menu-item>
+                <a-menu-item key="setting:2" @click="$i18n.locale = 'es'">
+                  Español
+                </a-menu-item>
+              </a-menu-item-group>
+            </a-sub-menu>
+            <!-- / language switch -->
+            <!-- Help button -->
+            <a-menu-item @click="navbarFixed = !navbarFixed">
+              <a-popover placement="bottom">
+                <template slot="content">
+                  <span>{{ $t("sidebar.docs") }}</span>
+                </template>
+                <a-icon type="question" />
+              </a-popover>
+            </a-menu-item>
+            <!-- / Help button -->
+          </a-menu>
+        </a-col>
       </a-row>
     </a-layout-header>
     <!--  /Layout Header -->

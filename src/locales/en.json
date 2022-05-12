@@ -1,0 +1,21 @@
+{
+  "message": "hello i18n !!",
+  "header": {
+    "switch-language": "Switch language",
+    "fix-header": "Fixed header"
+  },
+  "sidebar": {
+    "functions": "Functions",
+    "projects": "Projects",
+    "analytics": "Analytics",
+    "ai-predictions": "Ai predictions",
+    "administration": "Administration",
+    "database": "Database",
+    "app": "Aplication",
+    "docs": "Docs"
+  },
+  "modal": {
+    "ok": "Confirm",
+    "cancel": "Cancel"
+  }
+}
