@@ -1,22 +1,31 @@
 module.exports = {
-    runtimeCompiler: true,
+  runtimeCompiler: true,
 
-    chainWebpack: config => {
-		config
-			.plugin('html')
-			.tap(args => {
-				args[0].title = 'Muse Vue Ant Design - by Creative Tim'
-				return args
-			})
-	},
+  chainWebpack: (config) => {
+    config.plugin("html").tap((args) => {
+      args[0].title = "MetricOS Dashboard";
+      return args;
+    });
+  },
 
-    pluginOptions: {
-      i18n: {
-        locale: 'en',
-        fallbackLocale: 'en',
-        localeDir: 'locales',
-        enableInSFC: true,
-        enableBridge: false
-      }
-    }
-}
+  pluginOptions: {
+    i18n: {
+      locale: "en",
+      fallbackLocale: "en",
+      localeDir: "locales",
+      enableInSFC: true,
+      enableBridge: false,
+    },
+  },
+  configureWebpack: {
+    module: {
+      rules: [
+        {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: "javascript/auto",
+        },
+      ],
+    },
+  },
+};

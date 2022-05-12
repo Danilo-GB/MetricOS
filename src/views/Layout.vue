@@ -1,13 +1,10 @@
 <template>
   <div class="mb-24">
     <!-- Floating Action Button For Toggling -->
-    <a-button class="fab" shape="circle" @click="createNewComponent = true">
+    <a-button class="fab" shape="circle" @click="testStore">
       <a-icon type="plus" />
     </a-button>
-    <chart-creator
-      :createNewComponent="createNewComponent"
-      @onChange="createNewComponent = false"
-    ></chart-creator>
+    <chart-creator></chart-creator>
     <!-- / Floating Action Button For Toggling -->
     <div class="border-gray-6">
       <grid-layout
@@ -28,10 +25,8 @@
           :i="item.i"
           :key="item.i"
         >
-          <a-button type="primary" @click="() => (modal2Visible = true)">
-            Vertically centered modal dialog
-          </a-button>
-          <span>{{ $t("message") }}</span>
+          <a-button type="primary" @click="increment"> add ++ </a-button>
+          <span>{{ chartStore.counter }}</span>
         </grid-item>
       </grid-layout>
     </div>
@@ -39,8 +34,11 @@
 </template>
 
 <script>
+import { mapStores } from "pinia";
+import { useChartStore } from "../store/useChartStore";
 import VueGridLayout from "vue-grid-layout";
 import ChartCreator from "../components/Modals/ChartCreator.vue";
+
 export default {
   components: {
     GridLayout: VueGridLayout.GridLayout,
@@ -50,14 +48,19 @@ export default {
   data() {
     return {
       layout: [{ x: 0, y: 0, w: 4, h: 2, i: "1" }],
-
-      createNewComponent: false,
-      modalInput: "",
     };
   },
+  computed: {
+    ...mapStores(useChartStore),
+  },
   methods: {
-    switchComponentCreation() {
-      this.createNewComponent = !this.createNewComponent;
+    testStore() {
+      console.log(this.chartStore);
+    },
+    increment() {
+      this.chartStore.$patch({
+        counter: 10,
+      });
     },
   },
 };

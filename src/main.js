@@ -17,12 +17,14 @@ import App from "./App.vue";
 import DefaultLayout from "./layouts/Default.vue";
 import DashboardLayout from "./layouts/Dashboard.vue";
 import router from "./router";
-
-// import './plugins/click-away'
-
 import "./scss/app.scss";
+import i18n from "./i18n";
+import { createPinia, PiniaVuePlugin } from "pinia";
+import VueCompositionAPI from "@vue/composition-api";
 
-import i18n from './i18n'
+Vue.use(PiniaVuePlugin);
+const pinia = createPinia();
+Vue.use(VueCompositionAPI);
 
 Vue.use(Antd);
 
@@ -35,5 +37,6 @@ Vue.component("layout-dashboard", DashboardLayout);
 new Vue({
   router,
   i18n,
-  render: (h) => h(App)
+  pinia,
+  render: (h) => h(App),
 }).$mount("#app");
