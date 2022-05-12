@@ -419,8 +419,8 @@
       margin: 10px 20px;
     }
   }
-  &.navbar-fixed {
-    .ant-layout > div > .ant-affix .ant-layout-header {
+  .navbar-fixed {
+    .ant-affix .ant-layout-header {
       background: $color-gray-1;
       box-shadow: $shadow-1;
       margin: 10px 20px;

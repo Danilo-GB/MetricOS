@@ -8,11 +8,7 @@
     <a-layout
       class="layout-dashboard"
       id="layout-dashboard"
-      :class="[
-        navbarFixed ? 'navbar-fixed' : '',
-        !sidebarCollapsed ? 'has-sidebar' : '',
-        layoutClass,
-      ]"
+      :class="[!sidebarCollapsed ? 'has-sidebar' : '', layoutClass]"
     >
       <!-- Main Sidebar -->
       <DashboardSidebar
@@ -28,7 +24,6 @@
         <!-- Layout Header's Conditionally Fixed Wrapper -->
         <DashboardHeader
           :sidebarCollapsed="sidebarCollapsed"
-          :navbarFixed="navbarFixed"
           @toggleSettingsDrawer="toggleSettingsDrawer"
           @toggleSidebar="toggleSidebar"
         ></DashboardHeader>
@@ -76,10 +71,8 @@
       <!-- Settings Drawer -->
       <DashboardSettingsDrawer
         :showSettingsDrawer="showSettingsDrawer"
-        :navbarFixed="navbarFixed"
         :sidebarTheme="sidebarTheme"
         @toggleSettingsDrawer="toggleSettingsDrawer"
-        @toggleNavbarPosition="toggleNavbarPosition"
         @updateSidebarTheme="updateSidebarTheme"
         @updateSidebarColor="updateSidebarColor"
       ></DashboardSettingsDrawer>
@@ -113,9 +106,6 @@ export default {
       // Main sidebar theme : light, white, dark.
       sidebarTheme: "white",
 
-      // Header fixed status.
-      navbarFixed: false,
-
       // Settings drawer visiblility status.
       showSettingsDrawer: false,
     };
@@ -126,9 +116,6 @@ export default {
     },
     toggleSettingsDrawer(value) {
       this.showSettingsDrawer = value;
-    },
-    toggleNavbarPosition(value) {
-      this.navbarFixed = value;
     },
     updateSidebarTheme(value) {
       this.sidebarTheme = value;

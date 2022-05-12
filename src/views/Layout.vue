@@ -6,6 +6,15 @@
 <template>
   <div class="mb-24">
     <div class="border-gray-6">
+      <a-modal
+        v-model="modal2Visible"
+        title="Vertically centered modal dialog"
+        centered
+        @ok="() => (modal2Visible = false)"
+      >
+        <p>some contents...</p>
+        <input type="text" v-model="modalInput" />
+      </a-modal>
       <grid-layout
         :layout.sync="layout"
         :col-num="12"
@@ -24,18 +33,10 @@
           :i="item.i"
           :key="item.i"
         >
-          <!-- Widget 1 Card -->
-          <WidgetCounter
-            v-if="item.i === '1'"
-            title="hillow hillow"
-            :value="item.i"
-            prefix=""
-            suffix=""
-            icon='<a-icon type="appstore" theme="filled" />'
-          ></WidgetCounter>
-
-          <CardLineChart v-if="item.i === '2'"></CardLineChart>
-          <!-- / Widget 1 Card -->
+          <a-button type="primary" @click="() => (modal2Visible = true)">
+            Vertically centered modal dialog
+          </a-button>
+          <span>{{ modalInput }}</span>
         </grid-item>
       </grid-layout>
     </div>
@@ -55,10 +56,10 @@ export default {
   },
   data() {
     return {
-      layout: [
-        { x: 0, y: 0, w: 4, h: 2, i: "1" },
-        { x: 0, y: 2, w: 4, h: 8, i: "2" },
-      ],
+      layout: [{ x: 0, y: 0, w: 4, h: 2, i: "1" }],
+
+      modal2Visible: false,
+      modalInput: "",
     };
   },
 };
