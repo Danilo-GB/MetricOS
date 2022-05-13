@@ -15,22 +15,44 @@
     "docs": "Docs"
   },
   "modal": {
+    "steps": {
+      "1": {
+        "name": "Chart type",
+        "about": "Please select the chart type"
+      },
+      "2": {
+        "name": "Data selection",
+        "about": "Please insert the data query"
+      },
+      "3": {
+        "name": "Component preview",
+        "about": "please check that all fields are correct"
+      }
+    },
     "ok": "Confirm",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "not-found": "Not Found",
+    "prev": "Previous",
+    "next": "Next",
+    "done": "Save",
+    "header": "New graphic creation"
   },
   "chart": {
     "line": {
       "base": "line chart",
-      "basic": "@chart.line.base - Basic",
-      "zoomable": "@chart.line.base - Zoomable timeseries"
+      "basic": "@:chart.line.base Basic",
+      "zoomable": "@:chart.line.base Zoomable timeseries"
     },
     "area": {
       "base": "area chart",
-      "basic": "@chart.area.base - Basic"
+      "basic": "@:chart.area.base Basic"
     },
     "column": {
       "base": "column chart",
-      "basic": "@chart.column.base - Basic"
+      "basic": "@:chart.column.base Basic"
     }
+  },
+  "button": {
+    "select": "Select"
   }
 }

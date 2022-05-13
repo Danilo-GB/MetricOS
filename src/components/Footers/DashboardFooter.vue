@@ -20,7 +20,7 @@
               fill="#111827"
             />
           </svg>
-          by <a href="https://creative-tim.com">Danilo Garcia</a>.
+          by <a href="https://danilogarcia.netlify.app/">Danilo Garcia</a>.
         </p>
         <!-- / Footer Copyright Notice -->
       </a-col>

@@ -12,17 +12,7 @@ let routes = [
   {
     path: "/",
     name: "Home",
-    redirect: "/dashboard",
-  },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    layout: "dashboard",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "dashboard" */ "../views/Dashboard.vue"),
+    redirect: "/layout",
   },
   {
     path: "/layout",
@@ -31,38 +21,34 @@ let routes = [
     component: () => import("../views/Layout.vue"),
   },
   {
-    path: "/tables",
-    name: "Tables",
+    path: "/analytics",
+    name: "Analytics",
     layout: "dashboard",
-    component: () => import("../views/Tables.vue"),
+    component: () => import("../views/Layout.vue"),
   },
   {
-    path: "/billing",
-    name: "Billing",
+    path: "/ai-predictions",
+    name: "Ai predictions",
     layout: "dashboard",
-    component: () => import("../views/Billing.vue"),
+    component: () => import("../views/Layout.vue"),
   },
   {
-    path: "/Profile",
-    name: "Profile",
+    path: "/database",
+    name: "Database",
     layout: "dashboard",
-    meta: {
-      layoutClass: "layout-profile",
-    },
-    component: () => import("../views/Profile.vue"),
+    component: () => import("../views/Layout.vue"),
   },
   {
-    path: "/sign-in",
-    name: "Sign-In",
-    component: () => import("../views/Sign-In.vue"),
+    path: "/app",
+    name: "Aplication",
+    layout: "dashboard",
+    component: () => import("../views/Layout.vue"),
   },
   {
-    path: "/sign-up",
-    name: "Sign-Up",
-    meta: {
-      layoutClass: "layout-sign-up",
-    },
-    component: () => import("../views/Sign-Up.vue"),
+    path: "/docs",
+    name: "Docs",
+    layout: "dashboard",
+    component: () => import("../views/Layout.vue"),
   },
 ];
 

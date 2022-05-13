@@ -34,7 +34,7 @@
         {{ $t("sidebar.functions") }}
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/dashboard">
+        <router-link to="/layout">
           <span class="icon">
             <a-icon type="appstore" theme="filled" />
           </span>
@@ -42,7 +42,7 @@
         </router-link>
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/tables">
+        <router-link to="/analytics">
           <span class="icon">
             <a-icon type="fund" theme="filled" />
           </span>
@@ -50,7 +50,7 @@
         </router-link>
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/billing">
+        <router-link to="/ai-predictions">
           <span class="icon">
             <a-icon type="sliders" theme="filled" />
           </span>
@@ -62,7 +62,7 @@
         {{ $t("sidebar.administration") }}
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/profile">
+        <router-link to="/database">
           <span class="icon">
             <a-icon type="database" theme="filled" />
           </span>
@@ -70,7 +70,7 @@
         </router-link>
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/sign-in">
+        <router-link to="/app">
           <span class="icon">
             <a-icon type="control" theme="filled" />
           </span>
@@ -78,7 +78,7 @@
         </router-link>
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/sign-up">
+        <router-link to="/docs">
           <span class="icon"><a-icon type="copy" theme="filled" /> </span>
           <span class="label">{{ $t("sidebar.docs") }}</span>
         </router-link>

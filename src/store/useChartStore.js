@@ -3,9 +3,12 @@ import { defineStore } from "pinia";
 export const useChartStore = defineStore("chart", {
   state: () => ({
     isModalOpen: false,
-    counter: 0,
+    layout: [],
   }),
   actions: {
+    toggleModal() {
+      this.isModalOpen = !this.isModalOpen;
+    },
     increment() {
       this.counter++;
     },

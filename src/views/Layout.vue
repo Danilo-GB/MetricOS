@@ -1,7 +1,7 @@
 <template>
   <div class="mb-24">
     <!-- Floating Action Button For Toggling -->
-    <a-button class="fab" shape="circle" @click="testStore">
+    <a-button class="fab" shape="circle" @click="chartStore.toggleModal">
       <a-icon type="plus" />
     </a-button>
     <chart-creator></chart-creator>
@@ -25,8 +25,8 @@
           :i="item.i"
           :key="item.i"
         >
-          <a-button type="primary" @click="increment"> add ++ </a-button>
-          <span>{{ chartStore.counter }}</span>
+          <p>{{ item.i }}</p>
+          <component :is="item.component" :title="item.i"> </component>
         </grid-item>
       </grid-layout>
     </div>
@@ -38,31 +38,40 @@ import { mapStores } from "pinia";
 import { useChartStore } from "../store/useChartStore";
 import VueGridLayout from "vue-grid-layout";
 import ChartCreator from "../components/Modals/ChartCreator.vue";
-
+import ChartBase from "../components/Charts/ChartBase.vue";
 export default {
   components: {
     GridLayout: VueGridLayout.GridLayout,
     GridItem: VueGridLayout.GridItem,
     ChartCreator,
+    ChartBase,
   },
   data() {
     return {
-      layout: [{ x: 0, y: 0, w: 4, h: 2, i: "1" }],
+      layout: [
+        {
+          x: 0,
+          y: 0,
+          w: 4,
+          h: 2,
+          i: "0",
+          component: "ChartBase",
+        },
+        {
+          x: 0,
+          y: 2,
+          w: 4,
+          h: 2,
+          i: "1",
+          component: "ChartBase",
+        },
+      ],
     };
   },
   computed: {
     ...mapStores(useChartStore),
   },
-  methods: {
-    testStore() {
-      console.log(this.chartStore);
-    },
-    increment() {
-      this.chartStore.$patch({
-        counter: 10,
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
