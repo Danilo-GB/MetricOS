@@ -8,15 +8,15 @@
     :width="800"
   >
     <div class="px-10">
-      <a-steps :current="current" class="p-5">
+      <a-steps :current="chartStore.currentStep" class="p-5">
         <a-step v-for="item in steps" :key="item.title" :title="item.title" />
       </a-steps>
       <a-row class="steps-content" type="flex" align="middle" justify="center">
         <a-col>
           <keep-alive v-if="chartStore.isModalOpen">
             <component
-              :is="steps[current].component"
-              :title="$t(`modal.steps.${current + 1}.about`)"
+              :is="steps[chartStore.currentStep].component"
+              :title="$t(`modal.steps.${chartStore.currentStep + 1}.about`)"
             ></component>
           </keep-alive>
         </a-col>
@@ -25,21 +25,21 @@
     <template slot="footer">
       <div>
         <a-button
-          v-if="current > 0"
+          v-if="chartStore.currentStep > 0"
           style="margin-left: 8px"
-          @click="current--"
+          @click="chartStore.currentStep--"
         >
           {{ $t("modal.prev") }}
         </a-button>
         <a-button
-          v-if="current < steps.length - 1"
+          v-if="chartStore.currentStep < steps.length - 1"
           type="primary"
-          @click="current++"
+          @click="chartStore.currentStep++"
         >
           {{ $t("modal.next") }}
         </a-button>
         <a-button
-          v-if="current == steps.length - 1"
+          v-if="chartStore.currentStep == steps.length - 1"
           key="submit"
           type="primary"
           @click="handleDone"
@@ -66,7 +66,6 @@ export default {
   },
   data() {
     return {
-      current: 0,
       steps: [
         {
           title: this.$t("modal.steps.1.name"),
@@ -88,10 +87,11 @@ export default {
   },
   methods: {
     handleDone() {
-      this.chartStore.toggleModal();
+      //logic to save the data
+      this.chartStore.$reset();
     },
     handleCancel() {
-      this.chartStore.toggleModal();
+      this.chartStore.$reset();
     },
   },
 };

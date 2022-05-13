@@ -25,7 +25,7 @@
           :i="item.i"
           :key="item.i"
         >
-          <p>{{ item.i }}</p>
+          <p>{{ chartStore.isModalOpen }}</p>
           <component :is="item.component" :title="item.i"> </component>
         </grid-item>
       </grid-layout>
