@@ -16,7 +16,7 @@
           <keep-alive v-if="chartStore.isModalOpen">
             <component
               :is="steps[chartStore.currentStep].component"
-              :title="$t(`modal.steps.${chartStore.currentStep + 1}.about`)"
+              :stepId="chartStore.currentStep + 1"
             ></component>
           </keep-alive>
         </a-col>
@@ -106,7 +106,5 @@ export default {
   min-height: 200px;
   text-align: center;
   padding: 10px;
-}
-.modal-content {
 }
 </style>

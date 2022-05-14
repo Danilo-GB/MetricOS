@@ -2,16 +2,37 @@
   <div>
     <a-row type="flex" align="middle" justify="space-between">
       <a-col :span="24" class="mb-20"
-        ><span class="text-item-header">{{ title }}</span></a-col
+        ><span class="text-item-header">{{
+          $t(`modal.steps.1.about`)
+        }}</span></a-col
       >
       <a-col v-for="(chart, index) in AvailableCharts" :key="index">
-        <a-card hoverable style="width: 200px" class="mx-5">
+        <a-card class="chart-card">
           <img slot="cover" :alt="chart.title" :src="chart.src" />
           <div>{{ chart.title }}</div>
           <template slot="actions" class="ant-card-actions">
-            <a-button>{{ $t("button.select") }}</a-button>
+            <a-button
+              v-if="chartSelected !== index"
+              class="ant-tag-muted"
+              @click="setChartType(index)"
+              >{{ $t("button.select") }}</a-button
+            >
+            <a-button v-else @click="setChartType(index)">{{
+              $t("button.selected")
+            }}</a-button>
           </template>
         </a-card>
+      </a-col>
+      <a-col :span="24" class="my-20"
+        ><span class="text-item-header">{{
+          $t(`modal.steps.1.zoom`)
+        }}</span></a-col
+      >
+      <a-col :span="24">
+        <a-switch :checked="chartStore.chartData.zoom" @change="setChartZoom">
+          <a-icon slot="checkedChildren" type="check" />
+          <a-icon slot="unCheckedChildren" type="close" />
+        </a-switch>
       </a-col>
     </a-row>
   </div>
@@ -22,13 +43,14 @@ import { mapStores } from "pinia";
 import { useChartStore } from "../../store/useChartStore";
 export default {
   props: {
-    title: {
-      type: String,
+    stepId: {
+      type: Number,
       default: "",
     },
   },
   data() {
     return {
+      chartSelected: 0,
       AvailableCharts: [
         {
           title: this.$t("chart.line.basic"),
@@ -48,7 +70,20 @@ export default {
   computed: {
     ...mapStores(useChartStore),
   },
+  methods: {
+    setChartType(id) {
+      this.chartSelected = id;
+      this.chartStore.setChartType(id);
+    },
+    setChartZoom(checked) {
+      this.chartStore.setChartZoom(checked);
+    },
+  },
 };
 </script>
 
-<style></style>
+<style>
+.chart-card {
+  width: 200px;
+}
+</style>

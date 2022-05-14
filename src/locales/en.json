@@ -18,11 +18,14 @@
     "steps": {
       "1": {
         "name": "Chart type",
-        "about": "Please select the chart type"
+        "about": "Please select the chart type",
+        "zoom": "¿The graph will be zoomable?"
       },
       "2": {
         "name": "Data selection",
-        "about": "Please insert the data query"
+        "about": "Please insert the data query",
+        "data-preview": "This is what your data looks like:",
+        "waiting-query": "Waiting query..."
       },
       "3": {
         "name": "Component preview",
@@ -52,7 +55,20 @@
       "basic": "@:chart.column.base Basic"
     }
   },
+  "query": {
+    "select": "SELECT",
+    "from": "FROM",
+    "where": "WHERE",
+    "data": "Data",
+    "table": "Table name",
+    "condition": "Condition",
+    "having": "HAVING",
+    "group-by": "Group By",
+    "order-by": "Order By"
+  },
   "button": {
-    "select": "Select"
+    "select": "Select",
+    "selected": "Selected",
+    "test": "Test"
   }
 }
