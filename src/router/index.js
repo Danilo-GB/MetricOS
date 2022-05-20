@@ -11,11 +11,12 @@ let routes = [
   },
   {
     path: "/",
-    name: "Home",
-    redirect: "/layout",
+    name: "Pojects",
+    layout: "dashboard",
+    component: () => import("../views/Dashboard.vue"),
   },
   {
-    path: "/layout",
+    path: "/layout/:id",
     name: "Layout",
     layout: "dashboard",
     component: () => import("../views/Layout.vue"),

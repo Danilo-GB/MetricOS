@@ -70,5 +70,12 @@
     "select": "Select",
     "selected": "Selected",
     "test": "Test"
+  },
+  "projects": {
+    "title": "Projects",
+    "header": "Data monitoring and visualization",
+    "single": "Project",
+    "create": "Create new project",
+    "view-project": "VIEW PROJECT"
   }
 }

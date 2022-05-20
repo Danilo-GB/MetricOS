@@ -25,7 +25,7 @@
           :i="item.i"
           :key="item.i"
         >
-          <p>{{ chartStore.isModalOpen }}</p>
+          <p>{{ $route.params.id }}</p>
           <component :is="item.component" :title="item.i"> </component>
         </grid-item>
       </grid-layout>
@@ -71,7 +71,28 @@ export default {
   computed: {
     ...mapStores(useChartStore),
   },
-  methods: {},
+  methods: {
+    readComponents() {
+      var formdata = new FormData();
+      formdata.append("dashboardId", this.$route.params.id);
+
+      var requestOptions = {
+        method: "POST",
+        body: formdata,
+      };
+
+      fetch(
+        "http://localhost/metric_os_services/public/metric-os-api/read-components",
+        requestOptions
+      )
+        .then((response) => response.text())
+        .then((result) => console.log(JSON.parse(result)))
+        .catch((error) => console.log("error", error));
+    },
+  },
+  created() {
+    this.readComponents(); //ASIGN XYHW FROM COMPONENT TO LAYOUT :))))
+  },
 };
 </script>
 

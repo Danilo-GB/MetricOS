@@ -34,7 +34,7 @@
         {{ $t("sidebar.functions") }}
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/layout">
+        <router-link to="/">
           <span class="icon">
             <a-icon type="appstore" theme="filled" />
           </span>
