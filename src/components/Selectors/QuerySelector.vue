@@ -1,6 +1,6 @@
 <template>
   <div>
-    <a-row type="flex" align="start">
+    <a-row type="flex">
       <a-col :span="24" class="mb-20"
         ><span class="text-item-header">{{
           $t(`modal.steps.2.about`)

@@ -1,6 +1,8 @@
 import { defineStore } from "pinia";
 
 export const useDashStore = defineStore("dash", {
-  state: () => ({}),
+  state: () => ({
+    currentDashboard,
+  }),
   actions: {},
 });

@@ -21,12 +21,15 @@ import "./scss/app.scss";
 import i18n from "./i18n";
 import { createPinia, PiniaVuePlugin } from "pinia";
 import VueCompositionAPI from "@vue/composition-api";
+import VueApexCharts from "vue-apexcharts";
 
 Vue.use(PiniaVuePlugin);
 const pinia = createPinia();
 Vue.use(VueCompositionAPI);
 
 Vue.use(Antd);
+
+Vue.use(VueApexCharts);
 
 Vue.config.productionTip = false;
 

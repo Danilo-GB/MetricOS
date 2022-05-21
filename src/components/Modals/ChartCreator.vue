@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     handleDone() {
-      //logic to save the data
+      this.chartStore.addComponent();
       this.chartStore.$reset();
     },
     handleCancel() {
