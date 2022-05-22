@@ -5,11 +5,12 @@ export const useChartStore = defineStore("chart", {
     isModalOpen: false,
     currentStep: 0,
     chartData: {
-      seriesName: "",
-      seriesData: [],
-      type: "",
+      type: "line",
       zoom: false,
       title: "",
+      xaxis: "",
+      yaxis: "",
+      dataQuery: "",
     },
     layout: {
       x: null,
@@ -36,11 +37,12 @@ export const useChartStore = defineStore("chart", {
       var formdata = new FormData();
       formdata.append("i", this.layout.i);
       formdata.append("parentId", this.layout.parent);
-      formdata.append("component", "VueChart");
-      formdata.append(
-        "dataQuery",
-        "Select * FROM producto WHERE 1=1 ORDER BY id LIMIT 2"
-      );
+      formdata.append("dataQuery", this.chartData.dataQuery);
+      formdata.append("type", this.chartData.type);
+      formdata.append("zoom", this.chartData.zoom);
+      formdata.append("title", this.chartData.title);
+      formdata.append("xaxis", this.chartData.xaxis);
+      formdata.append("yaxis", this.chartData.yaxis);
       formdata.append("x", this.layout.x);
       formdata.append("y", this.layout.y);
       formdata.append("w", this.layout.w);

@@ -25,13 +25,14 @@
           :i="item.i"
           @moved="moveComponent"
           @resized="resizeComponent"
+          class="grid-chart-item"
         >
-          <div class="grid-chart-item">
+          <div>
             <apexchart
               :options="chartOptions"
               :series="series"
               :height="(item.h * 100) / 3 + 'px'"
-              :width="(item.w / 12) * $el.clientWidth - 20 + 'px'"
+              :width="(item.w / 12) * $el.clientWidth - 30 + 'px'"
             ></apexchart>
           </div>
         </grid-item>
@@ -64,7 +65,7 @@ export default {
     series() {
       return [
         {
-          name: "Desktops",
+          name: "",
           data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
         },
       ];
@@ -72,39 +73,17 @@ export default {
     chartOptions() {
       return {
         chart: {
-          type: "line",
+          type: "area",
           zoom: {
             enabled: false,
-          },
-          animations: {
-            enabled: true,
-            easing: "easeinout",
-            speed: 800,
-            animateGradually: {
-              enabled: true,
-              delay: 150,
-            },
-            dynamicAnimation: {
-              enabled: true,
-              speed: 350,
-            },
           },
         },
         dataLabels: {
           enabled: false,
         },
-        stroke: {
-          curve: "straight",
-        },
         title: {
           text: "Product Trends by Month",
           align: "left",
-        },
-        grid: {
-          row: {
-            colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-            opacity: 0.5,
-          },
         },
         xaxis: {
           categories: [
@@ -123,9 +102,6 @@ export default {
     },
   },
   methods: {
-    handleTest(val) {
-      console.log(val.clientWidth);
-    },
     readComponents() {
       var formdata = new FormData();
       formdata.append("dashboardId", this.$route.params.id);
@@ -194,7 +170,28 @@ export default {
       ).catch((error) => console.log("error", error));
     },
   },
+  watch: {
+    layout() {
+      this.layout.map((element) => {
+        var formdata = new FormData();
+        formdata.append("dataQuery", element.dataQuery);
 
+        var requestOptions = {
+          method: "POST",
+          body: formdata,
+          redirect: "follow",
+        };
+
+        fetch(
+          "http://localhost/metric_os_services/public/metric-os-api/query",
+          requestOptions
+        )
+          .then((response) => response.text())
+          .then((result) => console.log(JSON.parse(result)))
+          .catch((error) => console.log("error", error));
+      });
+    },
+  },
   created() {
     this.readComponents();
   },

@@ -1,5 +1,4 @@
 {
-  "message": "hello i18n !!",
   "header": {
     "switch-language": "Switch language",
     "fix-header": "Fixed header"
@@ -23,13 +22,14 @@
       },
       "2": {
         "name": "Data selection",
-        "about": "Please insert the data query",
+        "about": "Insert the data query",
         "data-preview": "This is what your data looks like:",
         "waiting-query": "Waiting query..."
       },
       "3": {
-        "name": "Component preview",
-        "about": "please check that all fields are correct"
+        "name": "Component properties",
+        "about": "Select the chart properties",
+        "waiting-data": "Waiting data..."
       }
     },
     "ok": "Confirm",
@@ -55,6 +55,11 @@
       "basic": "@:chart.column.base Basic"
     }
   },
+  "chartProperties": {
+    "title": "Chart title",
+    "xaxis": "Horizontal labels",
+    "yaxis": "Vertical values"
+  },
   "query": {
     "select": "SELECT",
     "from": "FROM",
@@ -77,5 +82,9 @@
     "single": "Project",
     "create": "Create new project",
     "view-project": "VIEW PROJECT"
+  },
+  "query-errors": {
+    "sintax": "Error in your SQL syntax, try again.",
+    "table-view": "Table or view not found in your database"
   }
 }
