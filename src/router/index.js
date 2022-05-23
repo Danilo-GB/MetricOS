@@ -37,7 +37,7 @@ let routes = [
     path: "/database",
     name: "Database",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: () => import("../views/Database.vue"),
   },
   {
     path: "/app",

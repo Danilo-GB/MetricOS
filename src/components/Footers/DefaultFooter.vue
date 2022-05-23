@@ -89,7 +89,7 @@
 
     <!-- Copyright Notice -->
     <p class="copyright">
-      Copyright © 2021 Muse by
+      Copyright © 2022
       <a href="https://danilogarcia.netlify.app/">Danilo Garcia</a>.
     </p>
     <!-- / Copyright Notice -->

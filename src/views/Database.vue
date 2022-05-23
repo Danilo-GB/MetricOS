@@ -1,7 +1,6 @@
 <template>
   <div class="mb-24">
-    <project-creator></project-creator>
-    <!-- / Floating Action Button For Toggling -->
+    <db-creator></db-creator>
     <!-- Projects Card -->
     <a-card
       :bordered="false"
@@ -9,8 +8,8 @@
       :bodyStyle="{ paddingTop: '14px' }"
     >
       <template #title>
-        <h6 class="font-semibold">{{ $t("projects.title") }}</h6>
-        <p>{{ $t("projects.header") }}</p>
+        <h6 class="font-semibold">{{ $t("database.title") }}</h6>
+        <p>{{ $t("database.header") }}</p>
       </template>
 
       <a-row type="flex" :gutter="[24, 24]" align="stretch">
@@ -19,25 +18,26 @@
           :span="24"
           :md="12"
           :xl="6"
-          v-for="(project, index) in dashStore.projects"
+          v-for="(db, index) in databaseStore.databases"
           :key="index"
         >
-          <CardProject
-            :id="project.id"
-            :name="project.name"
-            :brief="project.brief"
-          ></CardProject>
+          <CardDB
+            :id="index.toString()"
+            :name="db.DB_USER_DATABASE"
+            :host="db.DB_USER_HOST"
+            :port="db.DB_USER_PORT"
+          ></CardDB>
         </a-col>
         <!-- / Project Column -->
 
         <!-- Project Column -->
-        <a-col :span="24" :md="12" :xl="6" @click="dashStore.toggleModal">
+        <a-col :span="24" :md="12" :xl="6" @click="databaseStore.toggleModal">
           <!-- Project Upload Component -->
           <div type="flex" align="center" class="project-create">
             <div class="project-create-content">
               <a-icon type="plus" />
               <div>
-                {{ $t("projects.create") }}
+                {{ $t("database.create") }}
               </div>
             </div>
           </div>
@@ -52,25 +52,25 @@
 
 <script>
 import { mapStores } from "pinia";
-import { useDashStore } from "../store/useDashStore";
-import CardProject from "../components/Cards/CardProject";
-import ProjectCreator from "../components/Modals/ProjectCreator.vue";
+import { useDbStore } from "../store/useDbStore";
+import CardDB from "../components/Cards/CardDB";
+import DbCreator from "../components/Modals/dbCreator.vue";
 
 export default {
   components: {
-    CardProject,
-    ProjectCreator,
+    CardDB,
+    DbCreator,
   },
   data() {
     return {};
   },
   computed: {
-    ...mapStores(useDashStore),
+    ...mapStores(useDbStore),
   },
   methods: {},
 
   created() {
-    this.dashStore.readDashboards();
+    this.databaseStore.readDbs();
   },
 };
 </script>

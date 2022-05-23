@@ -17,6 +17,7 @@
       <a-col :span="12">
         <a-button
           @click="$router.push({ path: `/layout/${id}` })"
+          :disabled="disabled"
           size="small"
           >{{ $t("projects.view-project") }}</a-button
         >
@@ -40,6 +41,10 @@ export default {
     brief: {
       type: String,
       required: true,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

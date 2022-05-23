@@ -1,4 +1,6 @@
 {
+  "cooming-soon": "Cooming soon",
+  "demostration": "Metric OS demo V0.1",
   "header": {
     "switch-language": "Switch language",
     "fix-header": "Fixed header"
@@ -32,13 +34,21 @@
         "waiting-data": "Waiting data..."
       }
     },
+    "dashboard": {
+      "title": "New Dashboard",
+      "about": "Select the dashboard information",
+      "name": "Name",
+      "brief": "Description",
+      "image": "Image",
+      "waiting-data": "Waiting data..."
+    },
     "ok": "Confirm",
     "cancel": "Cancel",
     "not-found": "Not Found",
     "prev": "Previous",
     "next": "Next",
     "done": "Save",
-    "header": "New graphic creation"
+    "header": "METRIC OS"
   },
   "chart": {
     "line": {
@@ -82,6 +92,22 @@
     "single": "Project",
     "create": "Create new project",
     "view-project": "VIEW PROJECT"
+  },
+  "database": {
+    "title": "Database",
+    "header": "Database manager",
+    "single": "DB",
+    "create": "Add new database",
+    "config": "Configure your database",
+    "test": "Test",
+    "host": "Host",
+    "port": "Port",
+    "name": "Name",
+    "user": "User",
+    "passwd": "Password",
+    "select-db": "Select DB",
+    "delete-db": "Delete DB",
+    "waiting-data": "Waiting data..."
   },
   "query-errors": {
     "sintax": "Error in your SQL syntax, try again.",

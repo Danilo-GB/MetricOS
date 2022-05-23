@@ -8,7 +8,7 @@
     <!-- / Floating Action Button For Toggling -->
     <div class="border-gray-6">
       <grid-layout
-        :layout="layout"
+        :layout="chartStore.layout"
         :col-num="12"
         :row-height="30"
         :is-draggable="true"
@@ -16,7 +16,7 @@
         :margin="[10, 10]"
       >
         <grid-item
-          v-for="item in layout"
+          v-for="item in chartStore.layout"
           :key="item.i"
           :x="item.x"
           :y="item.y"
@@ -25,15 +25,63 @@
           :i="item.i"
           @moved="moveComponent"
           @resized="resizeComponent"
+          drag-allow-from=".vue-draggable-handle"
+          drag-ignore-from=".no-drag"
+          style="touch-action: none"
           class="grid-chart-item"
         >
           <div>
+            <div class="vue-draggable-handle"></div>
             <apexchart
-              :options="chartOptions"
-              :series="series"
+              class="no-drag"
+              v-if="item.loaded && item.component == 'chart'"
+              :options="{
+                chart: {
+                  type: item.type,
+                  zoom: {
+                    enabled: item.zoom,
+                  },
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+                title: {
+                  text: item.title,
+                  align: 'left',
+                },
+                xaxis: {
+                  categories: item.xLabels,
+                },
+                noData: {
+                  text: 'Loading...',
+                },
+              }"
+              :series="[{ data: item.yData, name: '' }]"
               :height="(item.h * 100) / 3 + 'px'"
               :width="(item.w / 12) * $el.clientWidth - 30 + 'px'"
             ></apexchart>
+            <a-card
+              v-if="item.component == 'text'"
+              :bordered="false"
+              class="card-profile-head mt-10"
+            >
+              <template #title>
+                <a-row type="flex" align="middle">
+                  <a-col :span="24" :md="12" class="col-info">
+                    <a-avatar
+                      :size="74"
+                      shape="square"
+                      src="https://img.freepik.com/vector-gratis/flat-tiny-people-comunicacion-concepto-socio-discusion-proyectos-empresariales_513217-78.jpg?t=st=1653061709~exp=1653062309~hmac=bd231a1a48c8fb86909b3823473bc2edf372c034ced64de075968637f694e656&w=740"
+                    />
+                    <div class="avatar-info">
+                      <h4 class="font-semibold m-0">
+                        {{ $t("demostration") }}
+                      </h4>
+                    </div>
+                  </a-col>
+                </a-row>
+              </template>
+            </a-card>
           </div>
         </grid-item>
       </grid-layout>
@@ -43,10 +91,10 @@
 
 <script>
 import { mapStores } from "pinia";
-import { useChartStore } from "../store/useChartStore";
-import VueGridLayout from "vue-grid-layout";
-import ChartCreator from "../components/Modals/ChartCreator.vue";
 import VueApexCharts from "vue-apexcharts";
+import VueGridLayout from "vue-grid-layout";
+import { useChartStore } from "../store/useChartStore";
+import ChartCreator from "../components/Modals/ChartCreator.vue";
 export default {
   components: {
     GridLayout: VueGridLayout.GridLayout,
@@ -55,84 +103,12 @@ export default {
     apexchart: VueApexCharts,
   },
   data() {
-    return {
-      layout: [],
-    };
+    return {};
   },
   computed: {
     ...mapStores(useChartStore),
-
-    series() {
-      return [
-        {
-          name: "",
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-        },
-      ];
-    },
-    chartOptions() {
-      return {
-        chart: {
-          type: "area",
-          zoom: {
-            enabled: false,
-          },
-        },
-        dataLabels: {
-          enabled: false,
-        },
-        title: {
-          text: "Product Trends by Month",
-          align: "left",
-        },
-        xaxis: {
-          categories: [
-            "Jan",
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-          ],
-        },
-      };
-    },
   },
   methods: {
-    readComponents() {
-      var formdata = new FormData();
-      formdata.append("dashboardId", this.$route.params.id);
-
-      var requestOptions = {
-        method: "POST",
-        body: formdata,
-      };
-
-      fetch(
-        "http://localhost/metric_os_services/public/metric-os-api/read-components",
-        requestOptions
-      )
-        .then((response) => response.text())
-        .then((result) => (this.layout = JSON.parse(result)))
-        .then(() => {
-          let length = this.layout.length;
-          this.chartStore.$patch({
-            layout: {
-              x: 0,
-              y: Math.max(...this.layout.map((component) => component.y)),
-              w: 7,
-              h: 7,
-              i: this.layout[length - 1].i + 1,
-              parent: this.$route.params.id,
-            },
-          });
-        })
-        .catch((error) => console.log("error", error));
-    },
-
     moveComponent(i, newX, newY) {
       var formdata = new FormData();
       formdata.append("parentId", this.$route.params.id);
@@ -170,30 +146,8 @@ export default {
       ).catch((error) => console.log("error", error));
     },
   },
-  watch: {
-    layout() {
-      this.layout.map((element) => {
-        var formdata = new FormData();
-        formdata.append("dataQuery", element.dataQuery);
-
-        var requestOptions = {
-          method: "POST",
-          body: formdata,
-          redirect: "follow",
-        };
-
-        fetch(
-          "http://localhost/metric_os_services/public/metric-os-api/query",
-          requestOptions
-        )
-          .then((response) => response.text())
-          .then((result) => console.log(JSON.parse(result)))
-          .catch((error) => console.log("error", error));
-      });
-    },
-  },
-  created() {
-    this.readComponents();
+  mounted() {
+    this.chartStore.readComponents(this.$route.params.id);
   },
 };
 </script>
@@ -204,5 +158,25 @@ export default {
   background-color: white;
   border-radius: 15px;
   padding: 10px;
+}
+.vue-grid-item .no-drag {
+  height: 100%;
+  width: 100%;
+}
+.vue-draggable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  padding: 0 8px 8px 0;
+  background-origin: content-box;
+  background-color: rgb(0, 195, 255);
+  box-sizing: border-box;
+  border-radius: 0 0 20px;
+  cursor: pointer;
+}
+.vue-grid-item.vue-grid-placeholder {
+  background: none;
 }
 </style>
