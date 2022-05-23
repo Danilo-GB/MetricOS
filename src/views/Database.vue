@@ -23,9 +23,9 @@
         >
           <CardDB
             :id="index.toString()"
-            :name="db.DB_USER_DATABASE"
-            :host="db.DB_USER_HOST"
-            :port="db.DB_USER_PORT"
+            :name="db.database"
+            :host="db.host"
+            :port="db.port"
           ></CardDB>
         </a-col>
         <!-- / Project Column -->

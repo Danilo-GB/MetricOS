@@ -106,6 +106,7 @@
     "user": "User",
     "passwd": "Password",
     "select-db": "Select DB",
+    "selected-db": "Selected DB",
     "delete-db": "Delete DB",
     "waiting-data": "Waiting data..."
   },

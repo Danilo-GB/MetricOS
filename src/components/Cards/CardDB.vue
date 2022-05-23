@@ -16,12 +16,16 @@
     <a-row type="flex" class="card-footer" justify="space-between">
       <a-col :span="12">
         <a-button
+          v-if="!isSelected"
           @click="handleSelect(id)"
           type="primary"
           size="small"
           :disabled="disabled"
           >{{ $t("database.select-db") }}</a-button
-        > </a-col
+        >
+        <a-button v-else size="small" :disabled="isSelected">{{
+          $t("database.selected-db")
+        }}</a-button></a-col
       ><a-col :span="12">
         <a-button
           @click="handleDelete(id)"
@@ -62,13 +66,16 @@ export default {
       default: false,
     },
   },
-
   computed: {
     ...mapStores(useDbStore),
+    isSelected() {
+      return this.databaseStore.selectedDb == this.id ? true : false;
+    },
   },
   methods: {
     handleSelect(id) {
       this.databaseStore.switchDatabase(id);
+      this.databaseStore.selectedDb = id;
     },
     handleDelete(id) {
       this.databaseStore.deleteDatabase(id);

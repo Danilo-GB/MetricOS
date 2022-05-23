@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const useDbStore = defineStore("database", {
   state: () => ({
     isModalOpen: false,
+    selectedDb: null,
     lastId: 0,
     databases: [],
     dbSettings: {
