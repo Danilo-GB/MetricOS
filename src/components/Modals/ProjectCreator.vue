@@ -16,13 +16,13 @@
           <keep-alive v-if="dashStore.isModalOpen">
             <div>
               <a-row type="flex" align="middle" justify="space-around">
-                <a-col :span="24" class="mb-20"
-                  ><span class="text-item-header">{{
-                    $t(`modal.steps.3.about`)
-                  }}</span></a-col
-                >
                 <a-col :span="12">
                   <a-row class="mb-40">
+                    <a-col :span="24" class="mb-20"
+                      ><span class="text-item-header">{{
+                        $t(`modal.dashboard.about`)
+                      }}</span></a-col
+                    >
                     <a-col :span="24">
                       <a-input
                         v-model="projectName"
@@ -94,7 +94,7 @@ export default {
     resetData() {
       this.projectName = "";
       this.projectBrief = "";
-      this.dashStore.$reset();
+      this.dashStore.$patch({ isModalOpen: false });
     },
   },
 };

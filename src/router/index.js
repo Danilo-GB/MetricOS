@@ -25,7 +25,13 @@ let routes = [
     path: "/analytics",
     name: "Analytics",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: () => import("../views/Statistics.vue"),
+  },
+  {
+    path: "/statistics/:id",
+    name: "Statistics",
+    layout: "dashboard",
+    component: () => import("../views/AnalyticsDashboard.vue"),
   },
   {
     path: "/ai-predictions",

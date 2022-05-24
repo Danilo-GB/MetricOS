@@ -88,10 +88,10 @@ export default {
   methods: {
     handleDone() {
       this.chartStore.addComponent();
-      this.chartStore.$reset();
+      this.chartStore.$patch({ isModalOpen: false, currentStep: 0 });
     },
     handleCancel() {
-      this.chartStore.$reset();
+      this.chartStore.$patch({ isModalOpen: false, currentStep: 0 });
     },
   },
 };

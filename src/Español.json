@@ -20,7 +20,7 @@
       "1": {
         "name": "Tipo de Gráfico",
         "about": "Seleccione el tipo de tráfico",
-        "zoom": "¿El Gráfico será ampliable?"
+        "zoom": "¿El Gráfico será ampliado?"
       },
       "2": {
         "name": "Selección de datos",
@@ -35,8 +35,8 @@
       }
     },
     "dashboard": {
-      "title": "Nuevo Dashboard",
-      "about": "Seleccione la información",
+      "title": "Nuevo tablero",
+      "about": "Seleccione el tablero de información",
       "name": "Nombre",
       "brief": "Descripción",
       "image": "Imagen",
@@ -102,29 +102,18 @@
     "test": "Prueba",
     "host": "Host",
     "port": "Puerto",
-    "name": "Base de datos",
-    "user": "Usuario",
+    "name": "Nombre",
+    "user": "Nombre de Usuario",
     "passwd": "Contraseña",
-    "select-db": "Seleccionar",
-    "selected-db": "Seleccionado",
-    "delete-db": "Eliminar",
+    "select-db": "Seleccionar Base de Datos",
+    "selected-db": "Base de Datos seleccionada",
+    "delete-db": "Eliminar Base de Datos",
     "waiting-data": "Esperando Datos..."
-  },
-  "stats": {
-    "min": "Mínimo",
-    "max": "Máximo",
-    "sum": "Suma",
-    "product": "Producto",
-    "mean": "Media",
-    "median": "Mediana",
-    "variance": "Varianza",
-    "standardDeviation": "Desviación estandar"
   },
   "statistics": {
     "title": "Estadística",
     "header": "Administrador de proyectos de estadistica",
     "create": "Crear nuevo proyecto",
-    "about": "Seleccione la información del proyecto",
     "single": "ST",
     "project": {
       "title": "Nuevo Proyecto",
@@ -137,7 +126,7 @@
     "steps": {
       "1": {
         "name": "Tipo de estadística",
-        "about": "Seleccione el tipo de análisis"
+        "about": "Please select the statistic type"
       },
       "2": {
         "name": "Selección de datos",
@@ -148,16 +137,12 @@
       "3": {
         "name": "Propiedades del componente",
         "about": "Selecionar las propiedades del componente",
-        "title": "Component title",
-        "data": "Datos",
-        "prefix": "Prefijo",
-        "sufix": "Sufijo",
         "waiting-data": "Datos en espera..."
       }
     }
   },
   "query-errors": {
-    "sintax": "Error en la sintaxis SQL, intenta de nuevo.",
-    "table-view": "Tabla o vista no encontrada en la base de datos"
+    "sintax": "Error in your SQL syntax, try again.",
+    "table-view": "Table or view not found in your database"
   }
 }

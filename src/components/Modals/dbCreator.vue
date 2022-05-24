@@ -9,7 +9,7 @@
   >
     <div class="px-10">
       <a-steps :current="0" class="p-5">
-        <a-step :title="$t('modal.dashboard.title')" />
+        <a-step :title="$t('database.create')" />
       </a-steps>
       <a-row class="steps-content" type="flex" align="middle" justify="center">
         <a-col>
@@ -123,7 +123,10 @@ export default {
         username: "root",
         password: "",
       };
-      this.databaseStore.$reset();
+      this.databaseStore.$patch({
+        isModalOpen: false,
+        dbSettings: this.dbSettings,
+      });
     },
   },
 };

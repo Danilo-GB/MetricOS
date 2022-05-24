@@ -110,6 +110,52 @@
     "delete-db": "Delete DB",
     "waiting-data": "Waiting data..."
   },
+  "stats": {
+    "min": "Lowest",
+    "max": "Highest",
+    "sum": "Addition",
+    "product": "Product",
+    "mean": "Mean",
+    "median": "Median",
+    "variance": "Variance",
+    "standardDeviation": "Standard deviation"
+  },
+  "statistics": {
+    "title": "Statistic",
+    "header": "Statistic project manager",
+    "create": "Create new project",
+    "about": "Select the project information",
+    "single": "ST",
+    "project": {
+      "title": "New project",
+      "about": "Select the project information",
+      "name": "Name",
+      "brief": "Description",
+      "image": "Image",
+      "waiting-data": "Waiting data..."
+    },
+    "steps": {
+      "1": {
+        "name": "Statistic type",
+        "about": "Please select the statistic type"
+      },
+      "2": {
+        "name": "Data selection",
+        "about": "Insert the data query",
+        "data-preview": "This is what your data looks like:",
+        "waiting-query": "Waiting query..."
+      },
+      "3": {
+        "name": "Component properties",
+        "about": "Select the component properties",
+        "title": "Component title",
+        "data": "Data",
+        "prefix": "Prefix",
+        "sufix": "Sufix",
+        "waiting-data": "Waiting data..."
+      }
+    }
+  },
   "query-errors": {
     "sintax": "Error in your SQL syntax, try again.",
     "table-view": "Table or view not found in your database"
