@@ -1,61 +1,68 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import notFound from "../views/404.vue";
+import Dashboard from "../views/Dashboard.vue";
+import Layout from "../views/Layout.vue";
+import Statistics from "../views/Statistics.vue";
+import AnalyticsDashboard from "../views/AnalyticsDashboard.vue";
+import Database from "../views/Database.vue";
+
 Vue.use(VueRouter);
 
 let routes = [
   {
     // will match everything
     path: "*",
-    component: () => import("../views/404.vue"),
+    component: notFound,
   },
   {
     path: "/",
     name: "Pojects",
     layout: "dashboard",
-    component: () => import("../views/Dashboard.vue"),
+    component: Dashboard,
   },
   {
     path: "/layout/:id",
     name: "Layout",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: Layout,
   },
   {
     path: "/analytics",
     name: "Analytics",
     layout: "dashboard",
-    component: () => import("../views/Statistics.vue"),
+    component: Statistics,
   },
   {
     path: "/statistics/:id",
     name: "Statistics",
     layout: "dashboard",
-    component: () => import("../views/AnalyticsDashboard.vue"),
+    component: AnalyticsDashboard,
   },
   {
     path: "/ai-predictions",
     name: "Ai predictions",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: notFound,
   },
   {
     path: "/database",
     name: "Database",
     layout: "dashboard",
-    component: () => import("../views/Database.vue"),
+    component: Database,
   },
   {
     path: "/app",
     name: "Aplication",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: notFound,
   },
   {
     path: "/docs",
     name: "Docs",
     layout: "dashboard",
-    component: () => import("../views/Layout.vue"),
+    component: notFound,
   },
 ];
 
