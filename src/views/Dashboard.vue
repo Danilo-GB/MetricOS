@@ -79,7 +79,6 @@ export default {
 .project-create {
   border: 2px dashed black;
   border-radius: 10px;
-  height: 100%;
   transition: all 0.1s ease-in;
 }
 .project-create:hover {

@@ -101,6 +101,7 @@
     "config": "Configura tu base de datos",
     "test": "Prueba",
     "host": "Host",
+    "type": "Tipo",
     "port": "Puerto",
     "name": "Base de datos",
     "user": "Usuario",

@@ -101,6 +101,7 @@
     "config": "Configure your database",
     "test": "Test",
     "host": "Host",
+    "type": "Type",
     "port": "Port",
     "name": "Name",
     "user": "User",

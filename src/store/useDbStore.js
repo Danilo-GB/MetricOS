@@ -7,6 +7,7 @@ export const useDbStore = defineStore("database", {
     lastId: 0,
     databases: [],
     dbSettings: {
+      type: "mysql",
       host: "localhost",
       port: "3306",
       database: "",
@@ -20,6 +21,7 @@ export const useDbStore = defineStore("database", {
     },
     addDB() {
       var formdata = new FormData();
+      formdata.append("dbType", this.dbSettings.type);
       formdata.append("dbHost", this.dbSettings.host);
       formdata.append("dbPort", this.dbSettings.port);
       formdata.append("dbName", this.dbSettings.database);
@@ -56,6 +58,7 @@ export const useDbStore = defineStore("database", {
     },
     switchDatabase(dbId) {
       var formdata = new FormData();
+      formdata.append("dbType", this.databases[dbId].type);
       formdata.append("dbHost", this.databases[dbId].host);
       formdata.append("dbPort", this.databases[dbId].port);
       formdata.append("dbName", this.databases[dbId].database);

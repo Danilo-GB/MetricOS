@@ -23,11 +23,18 @@
                         $t(`database.config`)
                       }}</span></a-col
                     >
-                    <a-col :span="24">
+                    <a-col :span="12">
                       <a-input
                         :addon-before="$t('database.name')"
                         :placeholder="$t('database.name')"
                         v-model="databaseStore.dbSettings.database"
+                      />
+                    </a-col>
+                    <a-col :span="12">
+                      <a-input
+                        :addon-before="$t('database.type')"
+                        :placeholder="$t('database.type')"
+                        v-model="databaseStore.dbSettings.type"
                       />
                     </a-col>
                   </a-row>
@@ -73,6 +80,7 @@
                       $t('database.waiting-data')
                     "
                     :host="databaseStore.dbSettings.host"
+                    :type="databaseStore.dbSettings.type"
                     :port="databaseStore.dbSettings.port"
                   ></CardDB>
                 </a-col>

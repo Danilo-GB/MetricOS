@@ -25,6 +25,7 @@
             :id="index.toString()"
             :name="db.database"
             :host="db.host"
+            :type="db.type"
             :port="db.port"
           ></CardDB>
         </a-col>

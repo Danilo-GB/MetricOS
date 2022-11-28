@@ -12,6 +12,7 @@
     </div>
     <h5>{{ name }}</h5>
     <p>{{ $t("database.host") }} : {{ host }}</p>
+    <p>{{ $t("database.type") }} : {{ type }}</p>
     <p>{{ $t("database.port") }} : {{ port }}</p>
     <a-row type="flex" class="card-footer" justify="space-between">
       <a-col :span="12">
@@ -54,6 +55,10 @@ export default {
       required: true,
     },
     host: {
+      type: String,
+      required: true,
+    },
+    type: {
       type: String,
       required: true,
     },

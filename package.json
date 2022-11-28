@@ -1,8 +1,8 @@
 {
-  "name": "muse-vue-ant-design-dashboard",
+  "name": "metric-os",
   "version": "1.0.0",
   "private": true,
-  "description": "A user-friendly, open source and beautiful dashboard based on Ant Design Vue.",
+  "description": "A user-friendly, open source dashboard solution.",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
