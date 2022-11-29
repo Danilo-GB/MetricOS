@@ -38,6 +38,11 @@ export const useChartStore = defineStore("chart", {
       formdata.append("i", this.newLayout.i);
       formdata.append("parentId", this.newLayout.parent);
       formdata.append("dataQuery", this.chartData.dataQuery);
+      formdata.append("dataQuery", this.chartData.dataQuery);
+      formdata.append("qSelect", this.chartData.qSelect);
+      formdata.append("qFrom", this.chartData.qFrom);
+      formdata.append("qOrderBy", this.chartData.qOrderBy);
+      formdata.append("qOrderByType", this.chartData.qOrderByType);
       formdata.append("type", this.chartData.type);
       formdata.append("zoom", this.chartData.zoom);
       formdata.append("title", this.chartData.title);
@@ -94,6 +99,10 @@ export const useChartStore = defineStore("chart", {
       this.layout.map((element) => {
         var formdata = new FormData();
         formdata.append("dataQuery", element.dataQuery);
+        formdata.append("qSelect", element.qSelect);
+        formdata.append("qFrom", element.qFrom);
+        formdata.append("qOrderBy", element.qOrderBy);
+        formdata.append("qOrderByType", element.qOrderByType);
 
         var requestOptions = {
           method: "POST",

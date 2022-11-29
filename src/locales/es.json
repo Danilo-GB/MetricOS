@@ -159,6 +159,7 @@
   },
   "query-errors": {
     "sintax": "Error en la sintaxis SQL, intenta de nuevo.",
-    "table-view": "Tabla o vista no encontrada en la base de datos"
+    "table-view": "Tabla o vista no encontrada en la base de datos",
+    "server": "Error en el servidor, intenta de nuevo."
   }
 }

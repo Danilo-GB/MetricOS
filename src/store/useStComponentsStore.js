@@ -20,6 +20,10 @@ export const useStcomponentsStore = defineStore("stcomponents", {
       sufix: "",
       dataId: "",
       dataQuery: "",
+      qSelect: "",
+      qFrom: "",
+      qOrderBy: "",
+      qOrderByType: "",
     },
     newLayout: {
       x: null,
@@ -53,6 +57,10 @@ export const useStcomponentsStore = defineStore("stcomponents", {
       formdata.append("i", this.newLayout.i);
       formdata.append("parentId", this.newLayout.parent);
       formdata.append("dataQuery", this.componentData.dataQuery);
+      formdata.append("qSelect", this.componentData.qSelect);
+      formdata.append("qFrom", this.componentData.qFrom);
+      formdata.append("qOrderBy", this.componentData.qOrderBy);
+      formdata.append("qOrderByType", this.componentData.qOrderByType);
       formdata.append("type", this.componentData.type);
       formdata.append("title", this.componentData.title);
       formdata.append("prefix", this.componentData.prefix);
@@ -109,6 +117,10 @@ export const useStcomponentsStore = defineStore("stcomponents", {
       this.layout.map((element) => {
         var formdata = new FormData();
         formdata.append("dataQuery", element.dataQuery);
+        formdata.append("qSelect", element.qSelect);
+        formdata.append("qFrom", element.qFrom);
+        formdata.append("qOrderBy", element.qOrderBy);
+        formdata.append("qOrderByType", element.qOrderByType);
 
         var requestOptions = {
           method: "POST",

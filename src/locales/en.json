@@ -159,6 +159,7 @@
   },
   "query-errors": {
     "sintax": "Error in your SQL syntax, try again.",
-    "table-view": "Table or view not found in your database"
+    "table-view": "Table or view not found in your database",
+    "server": "Server error, try again later."
   }
 }

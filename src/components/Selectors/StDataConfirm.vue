@@ -115,10 +115,12 @@ export default {
     },
     getData() {
       var formdata = new FormData();
-      formdata.append(
-        "dataQuery",
-        this.stcomponentsStore.componentData.dataQuery
-      );
+      let stcomponentsStore = this.stcomponentsStore.componentData;
+      formdata.append("dataQuery", stcomponentsStore.dataQuery);
+      formdata.append("qSelect", stcomponentsStore.qSelect);
+      formdata.append("qFrom", stcomponentsStore.qFrom);
+      formdata.append("qOrderBy", stcomponentsStore.qOrderBy);
+      formdata.append("qOrderByType", stcomponentsStore.qOrderByType);
 
       var requestOptions = {
         method: "POST",

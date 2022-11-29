@@ -113,7 +113,12 @@ export default {
     },
     getData() {
       var formdata = new FormData();
-      formdata.append("dataQuery", this.chartStore.chartData.dataQuery);
+      let chartStore = this.chartStore.chartData;
+      formdata.append("dataQuery", chartStore.dataQuery);
+      formdata.append("qSelect", chartStore.qSelect);
+      formdata.append("qFrom", chartStore.qFrom);
+      formdata.append("qOrderBy", chartStore.qOrderBy);
+      formdata.append("qOrderByType", chartStore.qOrderByType);
 
       var requestOptions = {
         method: "POST",
