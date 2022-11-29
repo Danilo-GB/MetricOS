@@ -70,18 +70,14 @@
         </router-link>
       </a-menu-item>
       <a-menu-item>
-        <router-link to="/app">
-          <span class="icon">
-            <a-icon type="control" theme="filled" />
-          </span>
-          <span class="label">{{ $t("sidebar.app") }}</span>
-        </router-link>
-      </a-menu-item>
-      <a-menu-item>
-        <router-link to="/docs">
+        <a
+          href="https://bit.ly/metric-os-user-manual"
+          target="blank"
+          ref="noopener noreferrer"
+        >
           <span class="icon"><a-icon type="copy" theme="filled" /> </span>
           <span class="label">{{ $t("sidebar.docs") }}</span>
-        </router-link>
+        </a>
       </a-menu-item>
     </a-menu>
     <!-- / Sidebar Navigation Menu -->
